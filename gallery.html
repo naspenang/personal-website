@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -15,11 +15,11 @@ function toggleDarkMode() {
     var btn = document.getElementById('dark-mode-btn');
     if (body.className === 'dark-mode') {
         body.className = '';
-        btn.innerHTML = '??';
+        btn.innerHTML = '\uD83C\uDF19';
         localStorage.setItem('theme', 'light');
     } else {
         body.className = 'dark-mode';
-        btn.innerHTML = '??';
+        btn.innerHTML = '\u2600\uFE0F';
         localStorage.setItem('theme', 'dark');
     }
 }
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (localStorage.getItem('theme') === 'dark') {
         document.body.className = 'dark-mode';
         var btn = document.getElementById('dark-mode-btn');
-        if (btn) btn.innerHTML = '??';
+        if (btn) btn.innerHTML = '\u2600\uFE0F';
     }
 });
 </script>
