@@ -476,3 +476,22 @@ body.dark-mode a:hover { color: #ef5350; }
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(to bottom, #2980b9, #1a252f);
 }
+
+/* Social Media Buttons */
+.social-btn {
+    display: inline-block;
+    color: #ffffff !important;
+    padding: 10px 15px;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+.social-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    color: #ffffff !important;
+}
