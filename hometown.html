@@ -14,12 +14,22 @@ function toggleDarkMode() {
     var btn = document.getElementById('dark-mode-btn');
     if (body.className === 'dark-mode') {
         body.className = '';
-        btn.innerHTML = '\uD83C\uDF19';
+        btn.innerHTML = '??';
+        localStorage.setItem('theme', 'light');
     } else {
         body.className = 'dark-mode';
-        btn.innerHTML = '\u2600\uFE0F';
+        btn.innerHTML = '??';
+        localStorage.setItem('theme', 'dark');
     }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.className = 'dark-mode';
+        var btn = document.getElementById('dark-mode-btn');
+        if (btn) btn.innerHTML = '??';
+    }
+});
 </script>
 </head>
 <body>
