@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="thoughts, contact, blog, nasrul" />
+<meta name="description" content="My Thoughts and Reflections" />
+<meta name="author" content="Muhamad Nasrul bin Hussain" />
+<title>My Personal Website - My Thoughts</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+function submitForm() {
+    var name = document.forms[0].elements['name'].value;
+    var email = document.forms[0].elements['email'].value;
+    var message = document.forms[0].elements['message'].value;
+    
+    if (name === '' || email === '' || message === '') {
+        alert('Please fill in all fields before submitting!');
+        return false;
+    }
+    
+    // Simple email format check
+    if (email.indexOf('@') === -1 || email.indexOf('.') === -1) {
+        alert('Please enter a valid email address!');
+        return false;
+    }
+    
+    alert('Thank you, ' + name + '! Your message has been received. Since this is a static website, the message was not actually sent, but I appreciate your thoughts.');
+    document.forms[0].reset();
+    updateCharCount();
+    return false;
+}
+
+function updateCharCount() {
+    var msg = document.forms[0].elements['message'].value;
+    var remaining = 500 - msg.length;
+    var counter = document.getElementById('char-counter');
+    if (counter) {
+        counter.innerHTML = remaining + ' characters remaining';
+        if (remaining < 50) {
+            counter.style.color = '#e74c3c';
+        } else {
+            counter.style.color = '#7f8c8d';
+        }
+    }
+}
+
+function resetForm() {
+    document.forms[0].reset();
+    updateCharCount();
+    alert('Form has been cleared!');
+}
+
+function toggleDarkMode() {
+    var body = document.body;
+    var btn = document.getElementById('dark-mode-btn');
+    if (body.className === 'dark-mode') {
+        body.className = '';
+        btn.innerHTML = '\uD83C\uDF19';
+    } else {
+        body.className = 'dark-mode';
+        btn.innerHTML = '\u2600\uFE0F';
+    }
+}
+</script>
+</head>
+<body>
+
+<table width="900" border="0" align="center" cellpadding="0" cellspacing="0" class="main-container">
+  <tr>
+    <td colspan="2" class="header-area">
+        <img src="images/banner.jpg" width="900" height="200" alt="My Personal Website Banner" />
+    </td>
+  </tr>
+  <tr>
+    <td width="200" valign="top" class="nav-area">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="relationships.html">Family &amp; Friends</a></li>
+            <li><a href="hobbies.html">Hobbies &amp; Interests</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="hometown.html">Hometown</a></li>
+            <li><a href="thoughts.html">My Thoughts</a></li>
+        </ul>
+    </td>
+    <td width="700" valign="top" class="content-area">
+        <h1>My Thoughts</h1>
+        
+        <p>Life is an incredible journey. Building this website for IML254 has been a fun learning experience. It challenged me to understand XHTML, CSS, and how to structure content using tables. It's fascinating how a few lines of code can create a visual experience that anyone can access from their browser.</p>
+        
+        <blockquote>
+            <p><i>"The only way to do great work is to love what you do." - Steve Jobs</i></p>
+        </blockquote>
+        
+        <h2>Leave a Message</h2>
+        <p>I would love to hear from you. Fill out the form below to share your thoughts:</p>
+        
+        <form action="#" method="post" onsubmit="return submitForm()">
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr>
+                    <td width="20%" align="right">Name:</td>
+                    <td width="80%"><input type="text" name="name" size="30" /></td>
+                </tr>
+                <tr>
+                    <td align="right">Email:</td>
+                    <td><input type="text" name="email" size="30" /></td>
+                </tr>
+                <tr>
+                    <td align="right" valign="top">Message:</td>
+                    <td>
+                        <textarea name="message" rows="5" cols="40" maxlength="500" onkeyup="updateCharCount()"></textarea>
+                        <br /><small id="char-counter" style="color: #7f8c8d;">500 characters remaining</small>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <input type="submit" value="Send Message" style="padding: 8px 20px; background-color: #2c3e50; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 14px;" />
+                        &nbsp;
+                        <input type="image" src="images/thumb5.jpg" alt="Reset Form" class="img-button" width="35" height="35" onclick="resetForm(); return false;" title="Reset Form" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+        
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="disclaimer-area">
+        <p>&copy; 2026 Muhamad Nasrul bin Hussain. All rights reserved.</p>
+        <p>Best viewed on Google Chrome with 1920x1080 resolution.</p>
+        <p>Last updated: June 2026</p>
+    </td>
+  </tr>
+</table>
+
+<!-- Dark Mode Toggle Button -->
+<button id="dark-mode-btn" class="dark-mode-btn" onclick="toggleDarkMode()" title="Toggle Dark Mode">&#127769;</button>
+
+</body>
+</html>

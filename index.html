@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="personal website, nasrul, iml254" />
+<meta name="description" content="My Personal Website for IML254" />
+<meta name="author" content="Muhamad Nasrul bin Hussain" />
+<title>My Personal Website - Home</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+function greetUser() {
+    var hour = new Date().getHours();
+    var greeting;
+    var emoji;
+    if (hour < 12) {
+        greeting = "Good Morning";
+        emoji = "\u2600\uFE0F";
+    } else if (hour < 18) {
+        greeting = "Good Afternoon";
+        emoji = "\uD83C\uDF24\uFE0F";
+    } else {
+        greeting = "Good Evening";
+        emoji = "\uD83C\uDF19";
+    }
+    document.getElementById('greeting-text').innerHTML = emoji + ' ' + greeting + '! Welcome to my personal website.';
+    updateClock();
+    setInterval(updateClock, 1000);
+}
+
+function updateClock() {
+    var now = new Date();
+    var h = now.getHours();
+    var m = now.getMinutes();
+    var s = now.getSeconds();
+    var ampm = h >= 12 ? 'PM' : 'AM';
+    h = h % 12;
+    if (h === 0) h = 12;
+    m = m < 10 ? '0' + m : m;
+    s = s < 10 ? '0' + s : s;
+    var clockEl = document.getElementById('digital-clock');
+    if (clockEl) {
+        clockEl.innerHTML = '\u23F0 ' + h + ':' + m + ':' + s + ' ' + ampm;
+    }
+}
+
+function toggleDarkMode() {
+    var body = document.body;
+    var btn = document.getElementById('dark-mode-btn');
+    if (body.className === 'dark-mode') {
+        body.className = '';
+        btn.innerHTML = '\uD83C\uDF19';
+    } else {
+        body.className = 'dark-mode';
+        btn.innerHTML = '\u2600\uFE0F';
+    }
+}
+
+window.onscroll = function() {
+    var btn = document.getElementById('back-to-top');
+    if (btn) {
+        if (document.documentElement.scrollTop > 200) {
+            btn.style.display = 'block';
+        } else {
+            btn.style.display = 'none';
+        }
+    }
+};
+
+function scrollToTop() {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
+</script>
+</head>
+<body onload="greetUser()">
+
+<table width="900" border="0" align="center" cellpadding="0" cellspacing="0" class="main-container">
+  <!-- Header Area -->
+  <tr>
+    <td colspan="2" class="header-area">
+        <!-- Header banner -->
+        <img src="images/banner.jpg" width="900" height="200" alt="My Personal Website Banner" />
+    </td>
+  </tr>
+  
+  <!-- Navigation and Content Area -->
+  <tr>
+    <!-- Navigation Area -->
+    <td width="200" valign="top" class="nav-area">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="relationships.html">Family &amp; Friends</a></li>
+            <li><a href="hobbies.html">Hobbies &amp; Interests</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="hometown.html">Hometown</a></li>
+            <li><a href="thoughts.html">My Thoughts</a></li>
+        </ul>
+    </td>
+    
+    <!-- Content Area -->
+    <td width="700" valign="top" class="content-area">
+        <h1>Welcome to My Personal Website</h1>
+        
+        <div class="profile-card">
+            <img src="images/nasrul.jpg" width="150" alt="Muhamad Nasrul bin Hussain" />
+            <br /><small>Hello there!</small>
+        </div>
+
+        <p id="greeting-text" class="greeting-text"></p>
+
+        <p>Hello! My name is <strong>Muhamad Nasrul bin Hussain</strong>. I am currently pursuing a <strong>Diploma in Library Informatics (IM144)</strong> at <strong>UiTM Cawangan Kedah</strong>. Welcome to my little corner of the internet, created as part of my IML254 course!</p>
+        <p>Professionally, I work as a <strong>Senior Library Assistant</strong> at Perpustakaan Tun Abdul Razak, UiTM Cawangan Pulau Pinang. I have a strong interest in <u>information management</u>, digital records, cataloguing, and <span style="color: #e74c3c;">information technology</span>.</p>
+        <p>Take a look around to learn more about my background, education, and things I enjoy doing.</p>
+        
+        <!-- Digital Clock -->
+        <p id="digital-clock" style="text-align: center; font-size: 18px; font-weight: bold; color: #2c3e50; background-color: #ecf0f1; padding: 8px; border-radius: 6px; margin: 10px 0;"></p>
+
+        <!-- Image-based navigation links -->
+        <h2>Explore My Website</h2>
+        <table width="100%" border="0" cellpadding="5" cellspacing="0">
+            <tr align="center">
+                <td><a href="education.html"><img src="images/thumb2.jpg" width="100" height="100" class="img-button" alt="Education" /><br /><small><strong>Education</strong></small></a></td>
+                <td><a href="hobbies.html"><img src="images/thumb1.jpg" width="100" height="100" class="img-button" alt="Hobbies" /><br /><small><strong>Hobbies</strong></small></a></td>
+                <td><a href="gallery.html"><img src="images/thumb3.jpg" width="100" height="100" class="img-button" alt="Gallery" /><br /><small><strong>Gallery</strong></small></a></td>
+                <td><a href="hometown.html"><img src="images/thumb4.jpg" width="100" height="100" class="img-button" alt="Hometown" /><br /><small><strong>Hometown</strong></small></a></td>
+            </tr>
+        </table>
+
+        <!-- Animation Element -->
+        <div class="animation-box">
+            <span class="bounce-animation">&#127950;</span>
+            <marquee behavior="alternate" scrollamount="3">Thanks for visiting my page!</marquee>
+        </div>
+    </td>
+  </tr>
+  
+  <!-- Disclaimer Area -->
+  <tr>
+    <td colspan="2" class="disclaimer-area">
+        <p>&copy; 2026 Muhamad Nasrul bin Hussain. All rights reserved.</p>
+        <p>Best viewed on Google Chrome with 1920x1080 resolution.</p>
+        <p>Last updated: June 2026</p>
+    </td>
+  </tr>
+</table>
+
+<!-- Dark Mode Toggle Button -->
+<button id="dark-mode-btn" class="dark-mode-btn" onclick="toggleDarkMode()" title="Toggle Dark Mode">&#127769;</button>
+
+<!-- Back to Top Button -->
+<button id="back-to-top" class="back-to-top" onclick="scrollToTop()" title="Back to Top">&#8679;</button>
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="gallery, photos, nasrul" />
+<meta name="description" content="My Photo Gallery" />
+<meta name="author" content="Muhamad Nasrul bin Hussain" />
+<title>My Personal Website - Gallery</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+var currentSlide = 0;
+var images = ['images/full1.jpg', 'images/full2.jpg', 'images/full3.jpg', 'images/full4.jpg', 'images/full5.jpg', 'images/full6.jpg'];
+var captions = ['Offroad Trip', 'Family Gathering', 'Butterworth View', 'UiTM Campus', 'Hanging with Friends', 'My 4x4 Rig'];
+
+function openLightbox(index) {
+    currentSlide = index;
+    var overlay = document.getElementById('lightbox-overlay');
+    overlay.style.display = 'flex';
+    updateLightbox();
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox-overlay').style.display = 'none';
+}
+
+function changeSlide(dir) {
+    currentSlide = currentSlide + dir;
+    if (currentSlide < 0) currentSlide = images.length - 1;
+    if (currentSlide >= images.length) currentSlide = 0;
+    updateLightbox();
+}
+
+function updateLightbox() {
+    document.getElementById('lightbox-img').src = images[currentSlide];
+    document.getElementById('lightbox-caption').innerHTML = captions[currentSlide] + ' (' + (currentSlide + 1) + '/' + images.length + ')';
+}
+</script>
+<script type="text/javascript">
+function toggleDarkMode() {
+    var body = document.body;
+    var btn = document.getElementById('dark-mode-btn');
+    if (body.className === 'dark-mode') {
+        body.className = '';
+        btn.innerHTML = '\uD83C\uDF19';
+    } else {
+        body.className = 'dark-mode';
+        btn.innerHTML = '\u2600\uFE0F';
+    }
+}
+</script>
+</head>
+<body>
+
+<table width="900" border="0" align="center" cellpadding="0" cellspacing="0" class="main-container">
+  <tr>
+    <td colspan="2" class="header-area">
+        <img src="images/banner.jpg" width="900" height="200" alt="My Personal Website Banner" />
+    </td>
+  </tr>
+  <tr>
+    <td width="200" valign="top" class="nav-area">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="relationships.html">Family &amp; Friends</a></li>
+            <li><a href="hobbies.html">Hobbies &amp; Interests</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="hometown.html">Hometown</a></li>
+            <li><a href="thoughts.html">My Thoughts</a></li>
+        </ul>
+    </td>
+    <td width="700" valign="top" class="content-area">
+        <h1>Photo Gallery</h1>
+        <p>Here are some of my favorite moments captured on camera. Click on any thumbnail to view the full image!</p>
+        
+        <table class="gallery-table">
+            <tr>
+                <td>
+                    <a href="javascript:void(0)" onclick="openLightbox(0)">
+                        <img src="images/thumb1.jpg" width="150" height="150" class="gallery-img" alt="Offroad trip" />
+                    </a>
+                    <br /><small>Offroad Trip</small>
+                </td>
+                <td>
+                    <a href="javascript:void(0)" onclick="openLightbox(1)">
+                        <img src="images/thumb2.jpg" width="150" height="150" class="gallery-img" alt="Family gathering" />
+                    </a>
+                    <br /><small>Family Gathering</small>
+                </td>
+                <td>
+                    <a href="javascript:void(0)" onclick="openLightbox(2)">
+                        <img src="images/thumb3.jpg" width="150" height="150" class="gallery-img" alt="Butterworth view" />
+                    </a>
+                    <br /><small>Butterworth View</small>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="javascript:void(0)" onclick="openLightbox(3)">
+                        <img src="images/thumb4.jpg" width="150" height="150" class="gallery-img" alt="UiTM campus" />
+                    </a>
+                    <br /><small>UiTM Campus</small>
+                </td>
+                <td>
+                    <a href="javascript:void(0)" onclick="openLightbox(4)">
+                        <img src="images/thumb5.jpg" width="150" height="150" class="gallery-img" alt="Hanging with friends" />
+                    </a>
+                    <br /><small>Hanging with Friends</small>
+                </td>
+                <td>
+                    <a href="javascript:void(0)" onclick="openLightbox(5)">
+                        <img src="images/thumb6.jpg" width="150" height="150" class="gallery-img" alt="My 4x4 rig" />
+                    </a>
+                    <br /><small>My 4x4 Rig</small>
+                </td>
+            </tr>
+        </table>
+        
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="disclaimer-area">
+        <p>&copy; 2026 Muhamad Nasrul bin Hussain. All rights reserved.</p>
+        <p>Best viewed on Google Chrome with 1920x1080 resolution.</p>
+        <p>Last updated: June 2026</p>
+    </td>
+  </tr>
+</table>
+
+<!-- Lightbox Overlay -->
+<div id="lightbox-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999; justify-content:center; align-items:center; flex-direction:column;">
+    <span onclick="closeLightbox()" style="position:absolute; top:20px; right:30px; color:white; font-size:35px; cursor:pointer; font-weight:bold;">&times;</span>
+    <span onclick="changeSlide(-1)" style="position:absolute; left:30px; top:50%; color:white; font-size:40px; cursor:pointer; font-weight:bold;">&#10094;</span>
+    <img id="lightbox-img" src="" alt="Full view" style="max-width:80%; max-height:75%; border:3px solid white; border-radius:8px;" />
+    <p id="lightbox-caption" style="color:white; font-size:16px; margin-top:15px; font-style:italic;"></p>
+    <span onclick="changeSlide(1)" style="position:absolute; right:30px; top:50%; color:white; font-size:40px; cursor:pointer; font-weight:bold;">&#10095;</span>
+</div>
+
+<!-- Dark Mode Toggle Button -->
+<button id="dark-mode-btn" class="dark-mode-btn" onclick="toggleDarkMode()" title="Toggle Dark Mode">&#127769;</button>
+
+</body>
+</html>
